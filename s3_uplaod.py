@@ -19,13 +19,13 @@ try:
      if args.objname:
           with open (args.upload,'rb') as file:
                s3_resource.Object(args.bucket,args.objname ).put(Body=file)
-               print('successfully Uploaded)
+               print('successfully Uploaded')
 
      else:
           args.objname = args.upload.split('/')[-1]
           with open (args.upload,'rb') as file:
                s3_resource.Object(args.bucket,args.objname).put(Body=file)
-               print('successfully Uploaded)
+               print('successfully Uploaded')
 
 except botocore.exceptions.ClientError as e:
      print(e.response['Error']['Code'])
